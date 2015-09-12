@@ -1,0 +1,77 @@
+{
+  :coming-soon
+  { 
+    :admin-user "admin" ; CHANGE THIS! Only use if config.edn is private! Otherwise use ENV var: ADMIN_USER
+    :admin-password "change_me!" ; CHANGE THIS! Only use if config.edn is private! Otherwise use ENV var: ADMIN_PASSWORD
+    :instance-prefix "test" ; make this unique if you are sharing a single redis instance w/ another coming-soon instance
+  }
+  :redis
+  {
+    ;; Local test instance
+  }
+  :landing-page
+  { 
+    ;; Copy
+    :page-title "Test Title"
+    :app-title "Integration Test"
+    :app-tagline "Test Tagline"
+    :app-summary "Test Summary"  ; OK to be blank
+    :instructions "Test Instructions"
+    :placeholder "Test Email Placeholder" ; OK to be blank
+    :sign-up-btn "Test Button"
+    :spam-msg "Test Spam Message" ; OK to be blank
+    :thank-you "Test Thank You"
+    :error "Test Error"
+    :copyright "Test Copyright" ; OK to be blank
+
+    ;; Fonts
+
+    ;; see font advice at:
+    ;; http://designshack.net/articles/css/10-great-google-font-combinations-you-can-copy/
+    ;; http://designshack.net/articles/typography/10-more-great-google-font-combinations-you-can-copy/
+    ;; http://www.insquaremedia.com/blog/15-web-design-stuff/50-our-favourite-google-font-combinations
+    
+    ;; see https://www.google.com/fonts for available fonts
+    :app-title-font "Test Title Font" ; Google web font
+    :app-title-backup-fonts "Test Title Backup Font" ; Web-safe fonts
+    :body-font "Test Body Font" ; Google web font
+    :body-backup-fonts "Test Body Backup Font" ; Web-safe fonts
+
+    ;; Images
+    :logo "/img/logo-test.png" ; OK to be blank
+    :background-image "/img/bg-test.png" ; OK to be blank
+
+    ;; Colors
+    :background-color "#00000A"
+    :container-bg-color "#0000A0"
+    :container-opacity "0.5" ; 1 for solid, 0 for no container, 0.x for some transparency
+    :app-title-color "#000A00"
+    :app-tagline-color "#00A000"
+    :app-summary-color "#0A0000"
+    :instructions-color "#A00000"
+    :spam-msg-color "#0000AA"
+    :thank-you-color "#000AA0"
+    :error-color "#00AA00"
+    :copyright-color "#0AA000"
+    :social-color "#AA0000"
+    :social-hover-color "#000AAA"
+
+    ;; Signup button
+    :signup-btn-icon "fa-envelope-o" ; see http://fortawesome.github.io/Font-Awesome/cheatsheet/ OK to be blank
+    :signup-btn-class "btn-test" ; see http://getbootstrap.com/css/#buttons
+
+    ;; Social stuff
+    :twitter-url "http://twitter.com/test" ; OK to be blank
+    :twitter-title "Test Twitter Title" ; OK to be blank
+    :facebook-url "https://www.facebook.com/test" ; OK to be blank
+    :facebook-title "Test Facebook Title" ; OK to be blank
+    :github-url "https://github.com/test" ; OK to be blank
+    :github-title "Test GitHub Title" ; OK to be blank
+    :blog-url "http://test.com/blog" ; OK to be blank
+    :blog-title "Test Blog Title" ; OK to be blank
+    :blog-feed "http://feeds.feedburner.com/test" ; OK to be blank
+
+    ;; Analytics
+    :analytics true ; include the analytics snippet in src/coming-soon/templates/analytics.html
+  }
+}

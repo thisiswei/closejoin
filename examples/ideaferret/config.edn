@@ -1,0 +1,90 @@
+{
+  :coming-soon
+  { 
+    :admin-user "admin" ; CHANGE THIS! Only use if config.edn is private! Otherwise use ENV var: ADMIN_USER
+    :admin-password "change_me!" ; CHANGE THIS! Only use if config.edn is private! Otherwise use ENV var: ADMIN_PASSWORD
+    :instance-prefix "ferret" ; make this unique if you are sharing a single redis instance w/ another coming-soon instance
+  }
+  :redis
+  {
+    ;; If you're running Redis locally on the same machine and the default 6379 port, leave everything in this section commented out
+
+    ;; HEROKU REDIS - uncomment the selected provider (remove the ;;)
+    ;; :redis-env-variable "REDISCLOUD_URL" ; Comment in for Redis Cloud on Heroku
+    ;; :redis-env-variable "REDISTOGO_URL" ; Comment in for Redis To Go on Heroku
+    ;; :redis-env-variable "OPENREDIS_URL" ; Comment in for openredis on Heroku
+    ;; :redis-env-variable "REDISGREEN_URL" ; Comment in for RedisGreen on Heroku
+
+    ;; SELF HOSTED REDIS
+    ;; A different port on the local machine might be: redis://localhost:7000/
+    ;; The default port, but on a different server might be: redis://10.1.0.70/ 
+    ;; Local on the default port, but with authentication might be: redis://admin:supersecret@localhost/
+    ;; Uncomment (remove the ;;) the line below for self-hosted redis that's not on port 6379 of localhost
+    ;; :redis-connect-URL "redis://user:pass@host:port/"
+  }
+  :landing-page
+  { 
+    ;; Copy
+    :page-title "IdeaFerret | Launching soon!"
+    :app-title "IdeaFerret"
+    :app-tagline "Find Your Best Idea"
+    :app-summary "&nbsp;&nbsp;&nbsp;Uqiquitous Idea Capture<br>+ Rigorous and Systematic Evaluation<br>= <span class='sum'>Your Best Idea</span>"  ; OK to be blank
+    :instructions "Here's an idea! We can notify you when it's ready."
+    :placeholder "you@email.com" ; OK to be blank
+    :sign-up-btn "Sign up"
+    :spam-msg "" ; OK to be blank
+    :thank-you "Thank you! We'll be in touch soon."
+    :error "Sorry! Our system is temporarily down, please try again later."
+    :copyright "" ; OK to be blank
+
+    ;; Fonts
+
+    ;; see font advice at:
+    ;; http://designshack.net/articles/css/10-great-google-font-combinations-you-can-copy/
+    ;; http://designshack.net/articles/typography/10-more-great-google-font-combinations-you-can-copy/
+    ;; http://www.insquaremedia.com/blog/15-web-design-stuff/50-our-favourite-google-font-combinations
+
+    ;; see https://www.google.com/fonts for available fonts
+    :app-title-font "Bree Serif" ; Google web font
+    :app-title-backup-fonts "Georgia,serif" ; Web-safe fonts
+    :body-font "Open Sans" ; Google web font
+    :body-backup-fonts "Arial,Helvetica,sans-serif" ; Web-safe fonts
+
+    ;; Images
+    :logo "" ; OK to be blank
+    :background-image "/img/ferret.jpg" ; OK to be blank
+
+    ;; Colors
+    :background-color "#FFF" ; white
+    :container-bg-color "#FFF" ; white
+    :container-opacity "0" ; 1 for solid, 0 for no container, 0.x for some transparency
+    :app-title-color "#63A687" ; greenish
+    :app-tagline-color "#000" ; black
+    :app-summary-color "#000" ; black
+    :instructions-color "#000" ; black
+    :spam-msg-color "#646464" ; dark grey
+    :thank-you-color "#63A687" ; greenish
+    :error-color "#F00" ; red
+    :copyright-color "#646464" ; dark grey
+    :social-color "#646464" ; dark grey
+    :social-hover-color "#63A687" ; greenish
+
+    ;; Signup button
+    :signup-btn-icon "fa-lightbulb-o" ; see http://fortawesome.github.io/Font-Awesome/cheatsheet/ OK to be blank
+    :signup-btn-class "btn-default" ; see http://getbootstrap.com/css/#buttons
+
+    ;; Social stuff
+    :twitter-url "http://twitter.com/ideaferret" ; OK to be blank
+    :twitter-title "" ; OK to be blank
+    :facebook-url "" ; OK to be blank
+    :facebook-title "" ; OK to be blank
+    :github-url "" ; OK to be blank
+    :github-title "" ; OK to be blank
+    :blog-url "http://blog.snootymonkey.com/" ; OK to be blank
+    :blog-title "" ; OK to be blank
+    :blog-feed "http://feeds.feedburner.com/snootymonkey" ; OK to be blank
+
+    ;; Analytics
+    :analytics false ; include the analytics snippet in src/coming-soon/templates/analytics.html
+  }
+}

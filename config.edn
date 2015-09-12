@@ -1,0 +1,108 @@
+{
+  :coming-soon { 
+    :admin-user "admin" ; CHANGE THIS! Only use if config.edn is private! Otherwise use ENV var: ADMIN_USER
+    :admin-password "change_me!" ; CHANGE THIS! Only use if config.edn is private! Otherwise use ENV var: ADMIN_PASSWORD
+    :instance-prefix "coming-soon" ; make this unique if you are sharing a single redis instance w/ another coming-soon instance
+  }
+  :redis {
+    ;; If you're running Redis locally on the same machine and the default 6379 port, leave everything in this section commented out
+
+    ;; HEROKU REDIS - uncomment the selected provider (remove the ;;)
+    ;; :redis-env-variable "REDISCLOUD_URL" ; Comment in for Redis Cloud on Heroku
+    ;; :redis-env-variable "REDISTOGO_URL" ; Comment in for Redis To Go on Heroku
+    ;; :redis-env-variable "OPENREDIS_URL" ; Comment in for openredis on Heroku
+    ;; :redis-env-variable "REDISGREEN_URL" ; Comment in for RedisGreen on Heroku
+
+    ;; SELF HOSTED REDIS
+    ;; A different port on the local machine might be: redis://localhost:7000/
+    ;; The default port, but on a different server might be: redis://10.1.0.70/ 
+    ;; Local on the default port, but with authentication might be: redis://admin:supersecret@localhost/
+    ;; Uncomment (remove the ;;) the line below for self-hosted redis that's not on port 6379 of localhost
+    ;; :redis-connect-URL "redis://user:pass@host:port/"
+  }
+  :webhooks {
+    ;; :posthere-io {
+    ;;   ;; POSThere.io is a webhook callback testing service you can use to test webhooks
+    ;;   :handler "coming-soon.webhooks.posthere-io"
+    ;;
+    ;;   ;; change me to something unique for you
+    ;;   :posthere-io-uuid "coming-soon-test"
+    ;; }
+    ;; :mailchimp {
+    ;;   :handler "coming-soon.webhooks.mailchimp"
+    ;;   :api-key "" ; only set this if your config.edn is private! Otherwise use the ENV variable: MAILCHIMP_API_KEY
+    ;;   :list-id "" ; REQUIRED! ID of the MailChimp list to add new contacts to (displayed in the list's settings)
+    ;;   :status "pending" ; Mailchimp status of the new subscriber ('pending' or 'subscribed', 'pending' gets an email confirmation)
+    ;; }
+    ;; :slack {
+    ;;     :handler "coming-soon.webhooks.slack"
+    ;;     :api-key "" ; only set this if your config.edn is private! Otherwise use the ENV variable: SLACK_API_KEY        
+    ;;     :channel-name ""
+    ;; }
+  }
+  :landing-page { 
+    ;; Copy
+    :page-title "Dataforest"
+    :app-title "Dataforest"
+    :app-tagline "Get Your Data Job Offers from Top Tech Companies"
+    ; keep app-summary empty for now
+    ; :app-summary "How It Works<br>Answer a Few Questions <br>Companies Send You Offers with Upfront Compensation <br>Get the job"  ; OK to be blank
+    :instructions "You will be the first one we notify when it's ready."
+    :placeholder "Email Address*" ; OK to be blank
+    :sign-up-btn "Claim your spot"
+    ; :spam-msg "* We will spam you. We dare you." ; OK to be blank
+    :thank-you "You Rock! You will be the first one we notify when it's ready."
+    :error "Sorry! Our system is temporarily down, please try again later."
+    :copyright "&copy; 2015 Dataforest" ; OK to be blank
+
+    ;; Fonts
+
+    ;; see font advice at:
+    ;; http://designshack.net/articles/css/10-great-google-font-combinations-you-can-copy/
+    ;; http://designshack.net/articles/typography/10-more-great-google-font-combinations-you-can-copy/
+    ;; http://www.insquaremedia.com/blog/15-web-design-stuff/50-our-favourite-google-font-combinations
+
+    ;; see https://www.google.com/fonts for available fonts
+    :app-title-font "Dancing Script" ; Google web font
+    :app-title-backup-fonts "Georgia, Times, serif" ; Web-safe fonts
+    :body-font "Josefin Sans" ; Google web font
+    :body-backup-fonts "Helvetica, Arial, sans-serif" ; Web-safe fonts
+
+    ;; Images
+    :logo "" ; OK to be blank
+    :background-image "/img/falklands.jpg" ; OK to be blank
+
+    ;; Colors
+    :background-color "#675031" ; brown
+    :container-bg-color "#EAFCFE" ; light green
+    :container-opacity "0.9" ; 1 for solid, 0 for no container, 0.x for some transparency
+    :app-title-color "#462A1C" ; dark brown
+    :app-tagline-color "#462A1C" ; dark brown
+    :app-summary-color "#462A1C" ; dark brown
+    :instructions-color "#462A1C" ; dark brown
+    :spam-msg-color "#646464" ; dark grey
+    :thank-you-color "#63A687" ; greenish
+    :error-color "#F00" ; red
+    :copyright-color "#EAFCFE" ; light green
+    :social-color "#96bfdb" ; sky blue
+    :social-hover-color "#462a1c" ; dark brown
+
+    ;; Signup button
+    :signup-btn-icon "fa-envelope" ; see http://fortawesome.github.io/Font-Awesome/cheatsheet/ OK to be blank
+    :signup-btn-class "btn-info" ; see http://getbootstrap.com/css/#buttons
+
+    ;; Social stuff
+    :twitter-url "" ; OK to be blank
+    :twitter-title "" ; OK to be blank
+    :facebook-url "" ; OK to be blank
+    :facebook-title "" ; OK to be blank
+    :github-url "" ; OK to be blank
+    :github-title "" ; OK to be blank
+    :blog-url "" ; OK to be blank
+    :blog-title "" ; OK to be blank
+    :blog-feed "" ; OK to be blank
+
+    ;; Analytics
+    :analytics false ; include the analytics snippet in src/coming-soon/templates/analytics.html
+  }
+}

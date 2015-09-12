@@ -1,7 +1,7 @@
 {
-  :coming-soon { 
-    :admin-user "admin" ; CHANGE THIS! Only use if config.edn is private! Otherwise use ENV var: ADMIN_USER
-    :admin-password "change_me!" ; CHANGE THIS! Only use if config.edn is private! Otherwise use ENV var: ADMIN_PASSWORD
+  :coming-soon {
+    :admin-user "mooster"
+    :admin-password "P@ssw0rd"
     :instance-prefix "coming-soon" ; make this unique if you are sharing a single redis instance w/ another coming-soon instance
   }
   :redis {
@@ -34,13 +34,13 @@
     ;;   :list-id "" ; REQUIRED! ID of the MailChimp list to add new contacts to (displayed in the list's settings)
     ;;   :status "pending" ; Mailchimp status of the new subscriber ('pending' or 'subscribed', 'pending' gets an email confirmation)
     ;; }
-    ;; :slack {
-    ;;     :handler "coming-soon.webhooks.slack"
-    ;;     :api-key "" ; only set this if your config.edn is private! Otherwise use the ENV variable: SLACK_API_KEY        
-    ;;     :channel-name ""
-    ;; }
+    :slack {
+        :handler ""
+        :api-key "" ; only set this if your config.edn is private! Otherwise use the ENV variable: SLACK_API_KEY        
+        :channel-name ""
+    }
   }
-  :landing-page { 
+  :landing-page {
     ;; Copy
     :page-title "Dataforest"
     :app-title "Dataforest"

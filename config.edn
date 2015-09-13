@@ -42,17 +42,17 @@
   }
   :landing-page {
     ;; Copy
-    :page-title "Dataforest"
-    :app-title "Dataforest"
-    :app-tagline "Get Your Data Job Offers from Top Tech Companies"
+    :page-title "CloseJoin"
+    :app-title "CloseJoin"
+    :app-tagline "A job marketplace for data nerds by data nerds"
     ; keep app-summary empty for now
     ; :app-summary "How It Works<br>Answer a Few Questions <br>Companies Send You Offers with Upfront Compensation <br>Get the job"  ; OK to be blank
-    :instructions "You will be the first one we notify when it's ready."
+    :instructions "10 minutes could get you to real top data job offers. All data nerds welcome!"
     :placeholder "Email Address*" ; OK to be blank
     :sign-up-btn "Claim your spot"
     ; :spam-msg "* We will spam you. We dare you." ; OK to be blank
     :thank-you "You Rock! You will be the first one we notify when it's ready."
-    :error "Sorry! Our system is temporarily down, please try again later."
+    :error "Crap! Our system is temporarily down, please try again later."
     :copyright "&copy; 2015 Dataforest" ; OK to be blank
 
     ;; Fonts

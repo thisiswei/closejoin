@@ -1,1 +1,92 @@
 /* Put your customized CSS styles here */
+
+.navbar {
+    margin-bottom: 0px !important;
+}
+
+.navbar.navbar-default {
+  background-color: white !important;
+}
+
+.navbar-brand {
+  font-size: 2.5em;
+  margin: 15px 0 15px 0;
+}
+
+.navbar a {
+  border-bottom: 0px !important;
+}
+
+.navbar-right {
+  margin-top: 30px;
+}
+
+h2#message-thanks {
+  display: none;
+}
+
+p#message-error {
+  display: none;
+  color: #c3536e;
+  background-color: #d0c258;
+}
+
+form#subscribe {
+  margin-top: 20px;
+}
+
+input#email {
+  font-size: 20px !important;
+  height: 42px !important;
+  width: 280px !important;
+}
+
+.btn {
+  font-size: 20px !important;
+}
+
+.btn-go { 
+  color: #FFFFFF; 
+  background-color: #4EB980; 
+  border-color: #54b380; 
+} 
+ 
+.btn-go:hover, 
+.btn-go:focus, 
+.btn-go:active, 
+.btn-go.active, 
+.open .dropdown-toggle.btn-go { 
+  color: #FFFFFF; 
+  background-color: #97D6B4; 
+  border-color: #54b380; 
+} 
+ 
+.btn-go:active, 
+.btn-go.active, 
+.open .dropdown-toggle.btn-go { 
+  background-image: none; 
+} 
+ 
+.btn-go.disabled, 
+.btn-go[disabled], 
+fieldset[disabled] .btn-go, 
+.btn-go.disabled:hover, 
+.btn-go[disabled]:hover, 
+fieldset[disabled] .btn-go:hover, 
+.btn-go.disabled:focus, 
+.btn-go[disabled]:focus, 
+fieldset[disabled] .btn-go:focus, 
+.btn-go.disabled:active, 
+.btn-go[disabled]:active, 
+fieldset[disabled] .btn-go:active, 
+.btn-go.disabled.active, 
+.btn-go[disabled].active, 
+fieldset[disabled] .btn-go.active { 
+  background-color: #4EB980; 
+  border-color: #54b380; 
+} 
+ 
+.btn-go .badge { 
+  color: #4EB980; 
+  background-color: #FFFFFF; 
+}

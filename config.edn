@@ -44,12 +44,9 @@
     ;; Copy
     :page-title "CloseJoin"
     :app-title "CloseJoin"
-    :app-tagline "A job marketplace for data nerds by data nerds"
-    ; keep app-summary empty for now
-    ; :app-summary "How It Works<br>Answer a Few Questions <br>Companies Send You Offers with Upfront Compensation <br>Get the job"  ; OK to be blank
-    :instructions "10 minutes could get you to real top data job offers. All data nerds welcome!"
+    :app-summary "Data Nerds Job Marketplace.<br/>Top data jobs within clicks."  ; OK to be blank
+    ; :instructions "Data Nerds Job Marketplace<br/>Top data job offers within clicks."
     :placeholder "Email Address*" ; OK to be blank
-    :sign-up-btn "Claim your spot"
     ; :spam-msg "* We will spam you. We dare you." ; OK to be blank
     :thank-you "You Rock! You will be the first one we notify when it's ready."
     :error "Crap! Our system is temporarily down, please try again later."
@@ -103,6 +100,6 @@
     :blog-feed "" ; OK to be blank
 
     ;; Analytics
-    :analytics false ; include the analytics snippet in src/coming-soon/templates/analytics.html
+    :analytics true ; include the analytics snippet in src/coming-soon/templates/analytics.html
   }
 }

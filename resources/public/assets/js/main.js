@@ -1,162 +1,108 @@
 /*
-	Overflow by HTML5 UP
+	Eventually by HTML5 UP
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-(function($) {
+(function() {
 
-	var settings = {
+	"use strict";
 
-		// Full screen header?
-			fullScreenHeader: true,
+	// Methods/polyfills.
 
-		// Parallax background effect?
-			parallax: true,
+		// classList | (c) @remy | github.com/remy/polyfills | rem.mit-license.org
+			!function(){function t(t){this.el=t;for(var n=t.className.replace(/^\s+|\s+$/g,"").split(/\s+/),i=0;i<n.length;i++)e.call(this,n[i])}function n(t,n,i){Object.defineProperty?Object.defineProperty(t,n,{get:i}):t.__defineGetter__(n,i)}if(!("undefined"==typeof window.Element||"classList"in document.documentElement)){var i=Array.prototype,e=i.push,s=i.splice,o=i.join;t.prototype={add:function(t){this.contains(t)||(e.call(this,t),this.el.className=this.toString())},contains:function(t){return-1!=this.el.className.indexOf(t)},item:function(t){return this[t]||null},remove:function(t){if(this.contains(t)){for(var n=0;n<this.length&&this[n]!=t;n++);s.call(this,n,1),this.el.className=this.toString()}},toString:function(){return o.call(this," ")},toggle:function(t){return this.contains(t)?this.remove(t):this.add(t),this.contains(t)}},window.DOMTokenList=t,n(Element.prototype,"classList",function(){return new t(this)})}}();
 
-		// Parallax factor (lower = more intense, higher = less intense).
-			parallaxFactor: 10
+		// canUse
+			window.canUse=function(p){if(!window._canUse)window._canUse=document.createElement("div");var e=window._canUse.style,up=p.charAt(0).toUpperCase()+p.slice(1);return p in e||"Moz"+up in e||"Webkit"+up in e||"O"+up in e||"ms"+up in e};
 
-	};
+		// window.addEventListener
+			(function(){if("addEventListener"in window)return;window.addEventListener=function(type,f){window.attachEvent("on"+type,f)}})();
 
-	skel.breakpoints({
-		wide: '(max-width: 1680px)',
-		normal: '(max-width: 1080px)',
-		narrow: '(max-width: 840px)',
-		mobile: '(max-width: 736px)'
-	});
+	// Vars.
+		var	$body = document.querySelector('body');
 
-	$(function() {
+	// Disable animations/transitions until everything's loaded.
+		$body.classList.add('is-loading');
 
-		var	$window = $(window),
-			$body = $('body');
+		window.addEventListener('load', function() {
+			window.setTimeout(function() {
+				$body.classList.remove('is-loading');
+			}, 100);
+		});
 
-		if (skel.vars.touch) {
+	// Slideshow Background.
+		(function() {
 
-			settings.parallax = false;
-			$body.addClass('is-scroll');
+			// Settings.
+				var settings = {
 
-		}
+					// Images (in the format of 'url': 'alignment').
+						images: {
+							'images/bg1.jpg': 'center',
+							'images/bg2.jpg': 'center',
+							'images/bg3.jpg': 'center',
+							'images/bg4.jpg': 'center',
+							'images/bg5.jpg': 'center'
+						},
 
-		// Disable animations/transitions until the page has loaded.
-			$body.addClass('is-loading');
+					// Delay.
+						delay: 6000
 
-			$window.on('load', function() {
-				$body.removeClass('is-loading');
-			});
+				};
 
-		// CSS polyfills (IE<9).
-			if (skel.vars.IEVersion < 9)
-				$(':last-child').addClass('last-child');
+			// Vars.
+				var	pos = 0, lastPos = 0,
+					$wrapper, $bgs = [], $bg,
+					k, v;
 
-		// Fix: Placeholder polyfill.
-			$('form').placeholder();
+			// Create BG wrapper, BGs.
+				$wrapper = document.createElement('div');
+					$wrapper.id = 'bg';
+					$body.appendChild($wrapper);
 
-		// Prioritize "important" elements on mobile.
-			skel.on('+mobile -mobile', function() {
-				$.prioritize(
-					'.important\\28 mobile\\29',
-					skel.breakpoint('mobile').active
-				);
-			});
+				for (k in settings.images) {
 
-		// Scrolly links.
-			$('.scrolly-middle').scrolly({
-				speed: 1000,
-				anchor: 'middle'
-			});
+					// Create BG.
+						$bg = document.createElement('div');
+							$bg.style.backgroundImage = 'url("' + k + '")';
+							$bg.style.backgroundPosition = settings.images[k];
+							$wrapper.appendChild($bg);
 
-			$('.scrolly').scrolly({
-				speed: 1000,
-				offset: function() { return (skel.breakpoint('mobile').active ? 70 : 190); }
-			});
-
-		// Full screen header.
-			if (settings.fullScreenHeader) {
-
-				var $header = $('#header');
-
-				if ($header.length > 0) {
-
-					var $header_header = $header.find('header');
-
-					$window
-						.on('resize.overflow_fsh', function() {
-
-							if (skel.breakpoint('mobile').active)
-								$header.css('padding', '');
-							else {
-
-								var p = Math.max(192, ($window.height() - $header_header.outerHeight()) / 2);
-								$header.css('padding', p + 'px 0 ' + p + 'px 0');
-
-							}
-
-						})
-						.trigger('resize.overflow_fsh');
-
-					$window.load(function() {
-						$window.trigger('resize.overflow_fsh');
-					});
+					// Add it to array.
+						$bgs.push($bg);
 
 				}
 
-			}
+			// Main loop.
+				$bgs[pos].classList.add('visible');
+				$bgs[pos].classList.add('top');
 
-		// Parallax background.
+				// Bail if we only have a single BG or the client doesn't support transitions.
+					if ($bgs.length == 1
+					||	!canUse('transition'))
+						return;
 
-			// Disable parallax on IE (smooth scrolling is jerky), and on mobile platforms (= better performance).
-				if (skel.vars.browser == 'ie'
-				||	skel.vars.mobile)
-					settings.parallax = false;
+				window.setInterval(function() {
 
-			if (settings.parallax) {
+					lastPos = pos;
+					pos++;
 
-				var $dummy = $(), $bg;
+					// Wrap to beginning if necessary.
+						if (pos >= $bgs.length)
+							pos = 0;
 
-				$window
-					.on('scroll.overflow_parallax', function() {
+					// Swap top images.
+						$bgs[lastPos].classList.remove('top');
+						$bgs[pos].classList.add('visible');
+						$bgs[pos].classList.add('top');
 
-						// Adjust background position.
-							$bg.css('background-position', 'center ' + (-1 * (parseInt($window.scrollTop()) / settings.parallaxFactor)) + 'px');
+					// Hide last image after a short delay.
+						window.setTimeout(function() {
+							$bgs[lastPos].classList.remove('visible');
+						}, settings.delay / 2);
 
-					})
-					.on('resize.overflow_parallax', function() {
+				}, settings.delay);
 
-						// If we're in a situation where we need to temporarily disable parallax, do so.
-							if (!skel.breakpoint('wide').active
-							||	skel.breakpoint('narrow').active) {
-
-								$body.css('background-position', '');
-								$bg = $dummy;
-
-							}
-
-						// Otherwise, continue as normal.
-							else
-								$bg = $body;
-
-						// Trigger scroll handler.
-							$window.triggerHandler('scroll.overflow_parallax');
-
-					})
-					.trigger('resize.overflow_parallax');
-
-			}
-
-		// Poptrox.
-			$('.gallery').poptrox({
-				useBodyOverflow: false,
-				usePopupEasyClose: false,
-				overlayColor: '#0a1919',
-				overlayOpacity: (skel.vars.IEVersion < 9 ? 0 : 0.75),
-				usePopupDefaultStyling: false,
-				usePopupCaption: true,
-				popupLoaderText: '',
-				windowMargin: 10,
-				usePopupNav: true
-			});
-
-	});
-
-})(jQuery);
+		})();
+})();

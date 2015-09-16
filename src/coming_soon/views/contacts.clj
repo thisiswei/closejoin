@@ -75,7 +75,7 @@
   [:#email] (set-attr :placeholder (landing-page :placeholder))
   [:#referrer] (set-attr :value referrer)
   [:#submit] (add-class (landing-page :signup-btn-class))  
-  [:#submit] (content (signup-button-icon) (landing-page :sign-up-btn))
+  ; [:#submit] (content (signup-button-icon) (landing-page :sign-up-btn))
   [:#spam-msg] (html-content (landing-page :spam-msg))
   [:#social-links] (content (map linked-icon [
     {:link-name "twitter" :icon-name "twitter"}

@@ -51,6 +51,7 @@
     :placeholder "Email Address*" ; OK to be blank
     ; :spam-msg "* We will spam you. We dare you." ; OK to be blank
     :thank-you "You Rock! You will be the first one we notify when it's ready."
+    :thank-you "Thanks for applying! You will hear from us if you are selected to our first candidate pool."
     :error "Crap! Our system is temporarily down, please try again later."
     :copyright "&copy; 2015 Dataforest" ; OK to be blank
 

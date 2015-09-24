@@ -45,12 +45,11 @@
     :page-title "CloseJoin"
 
     :app-title "CloseJoin"
-    :app-tagline "Job marketplace for data nerds"
-    :app-summary "Get matched with top data jobs in a few clicks.<br/>10 offers with upfront compensations in one week."  ; OK to be blank
+    :app-tagline "We bring real data jobs from top employers to you."
+    :app-summary "Complete a 10-minute application and let our system do the matching.<br/>Receive 5 - 15 real offers with upfront compensation figures in 1 week."  ; OK to be blank
     ; :instructions "Data Nerds Job Marketplace<br/>Top data job offers within clicks."
     :placeholder "Email Address*" ; OK to be blank
     ; :spam-msg "* We will spam you. We dare you." ; OK to be blank
-    :thank-you "You Rock! You will be the first one we notify when it's ready."
     :thank-you "Thanks for applying! You will hear from us if you are selected to our first candidate pool."
     :error "Crap! Our system is temporarily down, please try again later."
     :copyright "&copy; 2015 Dataforest" ; OK to be blank

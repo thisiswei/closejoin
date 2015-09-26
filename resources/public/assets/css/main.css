@@ -495,29 +495,6 @@
 		line-height: 1.5em;
 	}
 
-	@media screen and (max-width: 980px) {
-
-		header br {
-			display: none;
-		}
-
-	}
-
-	@media screen and (max-width: 736px) {
-
-		header br {
-			display: inline;
-		}
-
-	}
-
-	@media screen and (max-width: 480px) {
-
-		header br {
-			display: none;
-		}
-
-	}
 
 /* Icon */
 
